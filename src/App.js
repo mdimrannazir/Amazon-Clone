@@ -3,12 +3,12 @@ import Header from './Header' //Included the Header.js file
 import Cart from './Cart'
 import Home from './Home'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import styled from 'styled-components'
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <Container>
         <Header />
         <Switch>
           <Route path="/cart">
@@ -19,9 +19,13 @@ function App() {
             <Home />
           </Route>
         </Switch>
-      </div>
+      </Container>
     </Router>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+
+`
