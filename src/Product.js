@@ -1,19 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Product() {
+function Product({ title, price, rating, image, id }) {
+
     return (
         <Container>
             <Title>
-                Ipad Pro
+                { title }
             </Title>
             <Price>
-                $1449
+                ${ price }
             </Price>
             <Rating>
-            ⭐⭐⭐⭐⭐
+                {
+                    Array(rating)
+                    .fill()
+                    .map(rating=> <p>⭐</p>)
+
+                }
             </Rating>
-            <Image src = 'https://images-na.ssl-images-amazon.com/images/I/81SGb5l%2BlZL._AC_SX342_.jpg'/>
+            <Image src = { image } />
             <ActionSection>
             <AddToCartButton>
                 Add to Cart
@@ -41,7 +47,9 @@ const Price = styled.span`
     font-weight: 500;
     margin-top: 3px;
 `
-const Rating = styled.div``
+const Rating = styled.div`
+    display: flex;
+`
 const Image =styled.img`
     max-height: 200px;
     object-fit: contain;

@@ -1,18 +1,53 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
 import Product from './Product';
+import { db } from './firebase'
 
 function Home() {
-    return (
-             <Container>
-                 <Banner>
+    const [products, setProducts] = useState([])
 
-                 </Banner>
-                 <Content>
-                    <Product />
-                    <Product />
-                 </Content>
-            </Container>
+    const getProducts = () => {
+        db.collection('products').onSnapshot((snapshot) => {
+            let tempProducts = []
+
+            tempProducts = snapshot.docs.map((doc) => (
+                {
+                    id: doc.id,
+                    product: doc.data()
+                }
+            ));
+            setProducts(tempProducts);
+        })
+    }
+
+    useEffect(() => {
+        console.log("Call products")
+        getProducts()
+    }, [])
+
+    console.log(products)
+
+
+
+
+    return (
+        <Container>
+            <Banner>
+
+            </Banner>
+            <Content>
+                {
+                    products.map((data) => (
+                        <Product
+                            title={data.product.name}
+                            price={data.product.price}
+                            rating={data.product.rating}
+                            image={data.product.image}
+                        />
+                    ))
+                }
+            </Content>
+        </Container>
     )
 }
 
@@ -36,7 +71,5 @@ const Content = styled.div`
     padding: 0px 10px 0px 10px;
     margin-top: -350px;
     display: flex;
-    
 
 `
-//This is comment
