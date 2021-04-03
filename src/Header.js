@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'                                //Installed to use this package(Must NPM Install(npm i styled-components))
 import SearchIcon from '@material-ui/icons/Search';                  //Importing Material Icon to use icons later on(Must NPM Install(npm i @material-ui/core && npm i @material-ui/icons)-using cmd)
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';  
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -9,22 +9,22 @@ function Header() {
     return (
         <Container>
             <HeaderLogo>
-                <Link to = "/">
-                <img src={"https://mikekitko.com/wp-content/uploads/2019/10/amazon-logo-white-768x232.png"}/>
+                <Link to="/">
+                    <img src={"https://mikekitko.com/wp-content/uploads/2019/10/amazon-logo-white-768x232.png"} />
                 </Link>
             </HeaderLogo>
 
             <HeaderOptionAddress>
-                <LocationOnIcon /> 
+                <LocationOnIcon />
                 <HeaderOption>
-                <OptionLineOne>Hello</OptionLineOne>
-                <OptionLineTwo>Select Your Address</OptionLineTwo>
+                    <OptionLineOne>Hello</OptionLineOne>
+                    <OptionLineTwo>Select Your Address</OptionLineTwo>
                 </HeaderOption>
             </HeaderOptionAddress>
 
             <HeaderSearch>
                 <HeaderSearchInput type='text' />
-                
+
                 <HeaderSearchIconContainer>
                     <SearchIcon />
                 </HeaderSearchIconContainer>
@@ -42,15 +42,15 @@ function Header() {
                 </HeaderOption>
 
 
-                
+
                 <HeaderOptionCart>
-                <Link to="/cart">
-                    <ShoppingBasketIcon />
-                    <CartCount>3</CartCount>
-                </Link>
+                    <Link to="/cart">
+                        <ShoppingBasketIcon />
+                        <CartCount>3</CartCount>
+                    </Link>
                 </HeaderOptionCart>
-                
-                
+
+
 
             </HeaderNavItems>
         </Container>
@@ -141,4 +141,6 @@ a {
 `
 const CartCount = styled.div`
 padding: 0px 0px 0px 4px;
+font-weight: 700;
+color: #f08804;
 `
